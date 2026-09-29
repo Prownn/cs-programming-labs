@@ -1,9 +1,8 @@
-from curses.ascii import *
-text = str(input())
-print(f'''
-Длина: {len(text)}
-Только буквы: {text.isalpha()}
-Только цифры: {isdigit(text)}
-Буквенно-цифровая: {isalnum(text)}
-Содержит дефис: {'-' in text}
-''')
+word = input()
+print(f"""
+    Длина: {len(word)}
+    Только буквы: {word.isalpha()}
+    Только цифры: {word.isdigit()}
+    Буквенно-цифровая: {word.isalnum()}
+    Содержит дефис: {"-" in word}
+    """)
