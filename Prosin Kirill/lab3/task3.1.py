@@ -1,4 +1,4 @@
-text = str(input("Введите код документа в формате AAA-NNNN-NNNN:\n"))
+text = input()
 if len(text) == 13:
     text = text.split("-")
     print(f"""

@@ -1,3 +1,3 @@
-text = input("Введите фамилию, имя и отчество одной строкой с произвольным регистром букв")
+text = input()
 text = text.title().split()
 print(text[0], text[1][0] + ".", text[2][0] + ".")

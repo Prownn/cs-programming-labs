@@ -1,4 +1,4 @@
-train = input("Введите данные о поезде одной строкой в формате номер;откуда;куда;время;цена")
+train = input()
 train = train.split(";")
 print(train)
 print(f"""
