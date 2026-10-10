@@ -9,10 +9,9 @@ elif x == 0 and y != 0:
     print('Ось Y')
 elif x >0 and y >0:
     print('I четверть')
-elif x< 0 and y > 0:
+elif x < 0 < y:
     print('II четверть')
 elif x and y < 0:
     print('III четверть')
-elif x > 0 and y < 0:
+elif x > 0 > y:
     print('IV четверть')
-
