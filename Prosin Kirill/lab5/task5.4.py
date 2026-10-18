@@ -1,3 +1,3 @@
 num = int(input())
 for i in range(1,11):
-    print(num, "*", i, "=", i*num)
+    print(f" {num} * {i} = {i*num}")
