@@ -1,9 +1,9 @@
 current = float(input('Текущая \n'))
-des = float(input('Желаемая \n'))
+desirable = float(input('Желаемая \n'))
 
-if current > des:
+if current > desirable:
     print('Охлаждение')
-elif current < des:
+elif current < desirable:
     print('Нагрев')
-elif current == des:
+elif current == desirable:
     print('Выключен')
