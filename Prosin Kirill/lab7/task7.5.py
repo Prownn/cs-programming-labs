@@ -9,10 +9,14 @@ for row in range(len(table)):
         if (row < res[0] or row > res[1]) or (column < res[2] or column > res[3]):
             table[row][column] = 0
 j = 0
+count = False
 for row in table:
     i = 0
     for value in row:
         if value == num:
             print(j, i)
+            count = True
         i += 1
     j += 1
+if count == False:
+    print("Не найдено")

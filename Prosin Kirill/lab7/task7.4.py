@@ -1,7 +1,14 @@
+import sys
+
 rows, columns = map(int, input().split())
 table = []
 for i in range(rows):
-    table.append([int(value) for value in input().split()])
+    row = [int(value) for value in input().split()]
+    if len(row) == columns:
+        table.append(row)
+    else:
+        print('Неправильное количество столбцов')
+        sys.exit()
 row_sums = []
 for row in table:
     total = 0
