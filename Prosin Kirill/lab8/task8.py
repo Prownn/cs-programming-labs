@@ -12,7 +12,8 @@ def main():
             print("Полет прерван")
             return
         elif is_valid_command(command):
-            if can_burn(command, fuel):
+            power = int(command)
+            if can_burn(power, fuel):
                 height, speed, fuel = simulate_step(height, speed, fuel, power, gravity, thrust_step)
                 mas.append(format_state(height, speed, fuel))
             else:
@@ -23,31 +24,16 @@ def main():
     print(*mas, sep='\n')
     print(get_status(height, speed))
 def is_valid_command(command):
-    if command == "exit":
-        return "exit"
-    elif command in {"0", "1", "2"}:
-        global power
-        power = int(command)
-        return True
-    else:
-        return False
+    return command in ("0", "1", "2")
 def can_burn(power, fuel):
-    if fuel > 0:
-        if int(fuel) - int(power) > 0:
-            return True
-        else:
-            return False
-    else:
-        return False
+    return fuel >= power
 def simulate_step(height, speed, fuel, power, gravity, thrust_step):
     if can_burn(power, fuel):
         speed = speed + gravity - thrust_step * power
-        if speed <= 0:
-            speed = 0
+        if speed <= 0: speed = 0
         fuel = fuel - power
         height = height - speed
-        if height <= 0:
-            height = 0
+        if height <= 0: height = 0
     return height, speed, fuel
 def get_status(height, speed, safe_speed=2):
     if height > 0:
