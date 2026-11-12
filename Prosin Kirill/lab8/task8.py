@@ -1,25 +1,31 @@
-import sys
-
 def main():
+    mas = []
     height = 36
     speed = 3
     fuel = 10
     gravity = 3
     thrust_step = 4
+    mas.append(format_state(height, speed, fuel))
     while height > 0:
         command = input()
-        if is_valid_command(command) and can_burn(command, fuel):
-            height, speed, fuel = simulate_step(height, speed, fuel, power, gravity, thrust_step)
+        if command == "exit":
+            print("Полет прерван")
+            return
+        elif is_valid_command(command):
+            if can_burn(command, fuel):
+                height, speed, fuel = simulate_step(height, speed, fuel, power, gravity, thrust_step)
+                mas.append(format_state(height, speed, fuel))
+            else:
+                print("Недостаточно топлива")
+                return
         else:
-            return print("Ошибка команды")
-        print(format_state(height, speed, fuel))
+            print("Ошибка команды")
+    print(*mas, sep='\n')
     print(get_status(height, speed))
-
 def is_valid_command(command):
     if command == "exit":
-        print("Полет прерван")
-        sys.exit()
-    elif int(command) <= 2:
+        return "exit"
+    elif command in {"0", "1", "2"}:
         global power
         power = int(command)
         return True
